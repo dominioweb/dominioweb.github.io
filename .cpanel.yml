@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/b8c8oebk0oz0/repositories/dominiowebhub.io/
+    - /bin/cp -R * $DEPLOYPATH
