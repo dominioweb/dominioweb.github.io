@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+  <title>PWA - getInstalledRelatedApps</title>
+  <!--
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="initial-scale=1 viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+  -->
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+   
+  <!-- OT Expires 2020-01-14 -->
+  <link http-equiv="origin-trial" >
+  <meta name="theme-color" content="red" />
+  <meta name="theme-color" content="#3f51b5">
+
+  <link rel="stylesheet" href="_files/style.css">
+  <link rel="manifest" href="_files/manifest.json">
+  <script type="text/javascript" src="_files/pwacompat.min.js"></script>
+  <script type="text/javascript" src="_files/browser-deeplink.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script>
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register('_files/sw.js')
+    }
+    console.log(navigator);
+  </script>
+  <style>
+    body {
+      border-top: 10px solid #009;
+      background: #f00;
+      padding: 0;
+      margin: 0;
+      overflow: visible;
+    }
+    html {
+      overflow: visible;
+      background: #00f;
+      margin: 0;
+      padding: 0;
+      border-top: 10px solid red;
+    }
+    p {
+      margin: 0;
+    }
+    *, *:before, *:after {
+      box-sizing: border-box;
+    }
+    a {
+      font-family: monospace;
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 25px;
+      background: #F00;
+      color:#fff;
+      text-align: center;
+      font-size: 20px;
+      text-decoration: none;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function clickHandler(uri) {
+      deeplink.open(uri);
+      return false;
+    }
+
+    var appUrl = 'golearn://preloginpage';
+    var webUrl = 'https://www.docebo.com';
+
+    deeplink.setup({
+      androidDisabled: false,
+      fallback: true,
+      iOS: {
+        appId: "1362542319",
+        appName: "go-learn",
+      },
+      android: {
+        appId: "com.docebo.eolo.staging"
+      }, 
+      url: {
+        mobileUrl: appUrl,
+        webUrl: webUrl
+      }
+    });
+
+    window.onload = function() {
+
+      /*
+      setTimeout(function() {
+       window.location = "https://docebo.com";        
+      }, 250);
+      window.location = "golearn://";
+      */
+      // If "yourapp://" is registered, the user will see a dialog
+      // asking if they want to open your app. If they agree, your
+      // app will launch immediately and the timer won't fire.
+      // If not installed, you'll get an ugly "Cannot Open Page" 
+      // dialogue and your fallback page will open when the timer expires.
+
+      var is_mobile = deeplink.open(appUrl);
+      $(".link-web-app").add(".link-mobile-app").hide();
+      if(is_mobile == true){ 
+        $(".link-mobile-app").show(); 
+        $( "#link-mobile-app" ).trigger( "click" );                   
+      }else {
+        $(".link-web-app").show();
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <p id="requireHTTPS" class="hidden">
+    <b>STOP!</b> This page <b>must</b> be served over HTTPS.
+    Please <a>reload this page via HTTPS</a>.
+  </p>
+
+  <p id="notSupported">
+    <b>Sorry!</b> This browser doesn't support the <code>getInstalledRelatedApps</code>.
+     The API is only available as an origin trial in Chrome 73+ on Android.
+  </p>
+      
+  <div>
+    <b>Installed Apps:</b> <span id="status"></span>
+    <ul id="installedApps"></ul>
+  </div>
+
+  <script src="_files/common.js"></script>
+  <script src="_files/demo.js"></script>
+
+  <a href="#" data-uri="golearn://loginpage" class="link-web-app" onclick="clickHandler(this.dataset.uri)">Golearn - install APP</a>
+  <a href="#" data-uri="golearn://loginpage" class="link-mobile-app" id="install-app" onclick="clickHandler(this.dataset.uri)">Golearn - install APP</a>
+  <a href="golearn://preloginpage" class="link-mobile-app" id="link-mobile-app"> Golearn - preloginpage </a>
+  <a href="golearn://loginpage" class="link-mobile-app"> Golearn - loginpage </a>
+  <a href="golearn://allchannelspage?token=eyJhbGc.jM5MDIyf.EowmOx6Iy&domain=bXlwbGF0Zm9ybS5kb2NlYm9zYWFzLmNvbQ==" class="link-mobile-app"> Golearn - allchannelspage </a>
+
+</body>
+</html>

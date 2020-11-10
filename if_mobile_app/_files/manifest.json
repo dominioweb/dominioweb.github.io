@@ -1,0 +1,65 @@
+{
+  "name": "Your Great Site - Golearn demo website",
+  "short_name": "Site 😎 - Golearn demo website",
+  "description": "Learn how to create and share something or other.",
+  "start_url": "/?homescreen=1",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "./?homescreen=true",
+  "orientation": "portrait",
+  "theme_color": "#1abc9c",
+  "background_color": "#2c3e50",
+  "icons": [
+    {
+      "src": "logo-192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo-180.png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "logo-152.png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "logo-144.png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "logo-128.png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "logo-128.png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "logo-120.png",
+      "sizes": "120x120"
+    },
+    {
+      "src": "logo-114.png",
+      "sizes": "114x114"
+    },
+    {
+      "src": "logo-32.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "logo-16.png",
+      "sizes": "16x16"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.docebo.eolo.staging&hl=en_US&gl=US",
+      "id": "com.docebo.eolo.staging"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/us/app/go-learn/id1362542319"
+    }
+  ]
+}
