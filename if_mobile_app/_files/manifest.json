@@ -2,13 +2,12 @@
   "name": "Your Great Site - Golearn demo website",
   "short_name": "Site 😎 - Golearn demo website",
   "description": "Learn how to create and share something or other.",
-  "start_url": "/?homescreen=1",
-  "display": "standalone",
-  "scope": "/",
-  "start_url": "./?homescreen=true",
   "orientation": "portrait",
-  "theme_color": "#1abc9c",
-  "background_color": "#2c3e50",
+  "scope": "/",
+  "start_url": "https://dominioweb.com.mx/if_mobile_app/default.html",
+  "display": "standalone",
+  "background_color": "#e8eaf6",
+  "theme_color": "#3f51b5",
   "icons": [
     {
       "src": "logo-192.png",
